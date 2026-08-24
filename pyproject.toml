@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "parce-cert-core"
+version = "0.1.0"
+description = "Minimal reproducibility artifact for PARCE-Cert"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Chengwei Zhang", email = "230228490@seu.edu.cn"},
+  {name = "Yun Wang", email = "ywang_cse@seu.edu.cn"},
+]
+dependencies = ["scipy>=1.10"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
