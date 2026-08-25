@@ -4,6 +4,11 @@ This repository contains a deliberately small, host-independent artifact for the
 
 The release is designed to expose the central executable ideas without publishing the complete physical-event archive or the internal experiment workflow.
 
+## Repository and release
+
+- Repository: <https://github.com/zcw8887seu/parce-cert-artifact>
+- Submission release: <https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.1.0>
+
 ## Included
 
 - integer reference operator for fit-within-one-window periodic service;

@@ -13,6 +13,7 @@ Recommended attribution:
 
 > Zhang, Chengwei, and Yun Wang. PARCE-Cert Core Reproducibility Artifact,
 > aggregate result tables, version 0.1.0.
+> https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.1.0
 
 License summary and legal code:
 <https://creativecommons.org/licenses/by/4.0/>

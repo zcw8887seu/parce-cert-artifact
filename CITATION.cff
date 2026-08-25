@@ -3,6 +3,9 @@ message: "If you use this software or the accompanying aggregate data, please ci
 title: "PARCE-Cert Core Reproducibility Artifact"
 version: 0.1.0
 type: software
+repository-code: "https://github.com/zcw8887seu/parce-cert-artifact"
+url: "https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.1.0"
+license: MIT
 authors:
   - family-names: Zhang
     given-names: Chengwei
