@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "dataset": "e01-h3r1 privacy-safe reduced statistical-unit release",
+  "coordinates": ["X1", "X2", "X3", "X4", "E2E"],
+  "statistical_unit": "one pre-specified selected analysis instance from one complete fresh-process run",
+  "splits": {
+    "calibration": {"sessions": 20, "runs_per_session": 150, "n_units": 3000},
+    "validation": {"sessions": 20, "runs_per_session": 175, "n_units": 3500}
+  },
+  "calibration": {
+    "family_alpha": 0.05,
+    "menu_rows": 12,
+    "alpha_row": 0.004166666666666667,
+    "risk_grid": [0.002, 0.003, 0.004]
+  },
+  "validation": {"family_alpha": 0.05, "items": 5, "alpha_row": 0.01},
+  "calendar": {
+    "calendar_id": "C1",
+    "phase_ns": 455509,
+    "period_ns": 1000000,
+    "windows_ns": [[400000, 700000]],
+    "service_demand_ns": 50000,
+    "admission_semantics": "FIT_WITHIN_ONE_HALF_OPEN_WINDOW",
+    "late_wake_policy": "RECOMPUTE_NEXT_FEASIBLE"
+  },
+  "selected_design": {
+    "selected_risks": {"X1": 0.002, "X2": 0.003, "X3": 0.002, "X4": 0.003},
+    "selected_q_ns": {"X1": 100835, "X2": 8017883, "X3": 4855822, "X4": 2520154},
+    "risk_sum": 0.01,
+    "candidate_bound_ns": 15544694
+  },
+  "temporal_guard": {
+    "pairing": "pooled within-session lag-one pairs only; no pair crosses a session boundary",
+    "statistics": ["Pearson", "Spearman"],
+    "threshold": "max(0.10, 3/sqrt(n_lag_pairs))",
+    "trigger": "abs(Pearson) >= threshold OR abs(Spearman) >= threshold",
+    "calibration_trigger_caps_supported_state": true
+  },
+  "frozen_non_trace_checks": {
+    "event_inclusion_violations": 0,
+    "reference_mismatch_count": 0,
+    "note": "The reduced release recomputes coordinate-level inclusion. Reference-implementation timestamp comparison requires withheld raw target timestamps and is reported here only as the frozen checked result."
+  },
+  "expected": {
+    "h3_state": "INCONCLUSIVE_CORRELATION_SENSITIVITY",
+    "validation_failures": {"X1": 0, "X2": 0, "X3": 0, "X4": 1, "E2E": 0},
+    "diagnostics": {
+      "calibration": {
+        "X1": [0.4633976257068535, 0.28643441252973967, true],
+        "X2": [0.2672029732347605, 0.012800073039578107, true],
+        "X3": [0.01071347617850013, 0.08019312204517241, false],
+        "X4": [0.027971748820815052, 0.10249580982924042, true],
+        "E2E": [0.2802425239462337, 0.037836511206885685, true]
+      },
+      "validation": {
+        "X1": [0.18827276987521588, 0.07459088575219439, true],
+        "X2": [0.28653568982478583, -0.009358637303916792, true],
+        "X3": [-0.01748475254978531, 0.026511637137979684, false],
+        "X4": [0.028996001047223476, 0.008477427897521192, false],
+        "E2E": [0.3423735969248627, 0.01800615502323485, true]
+      }
+    }
+  }
+}

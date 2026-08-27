@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software or the accompanying aggregate data, please cite the PARCE-Cert paper."
 title: "PARCE-Cert Core Reproducibility Artifact"
-version: 0.1.0
+version: 0.2.0
 type: software
 repository-code: "https://github.com/zcw8887seu/parce-cert-artifact"
-url: "https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.1.0"
+url: "https://github.com/zcw8887seu/parce-cert-artifact"
 license: MIT
 authors:
   - family-names: Zhang

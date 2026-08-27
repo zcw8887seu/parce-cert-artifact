@@ -1,13 +1,13 @@
 # PARCE-Cert Core Reproducibility Artifact
 
-This repository contains a deliberately small, host-independent artifact for the paper **“PARCE-Cert: Conditional End-to-End Timing Certification with Selection-Valid Phase-Aware Composition and Exact Chain Risk Allocation.”**
+This repository contains a deliberately small, host-independent artifact for the paper **“PARCE-Cert: Selection-Valid Phase-Aware Timing Certification under Explicit Dependence Contracts.”**
 
 The release is designed to expose the central executable ideas without publishing the complete physical-event archive or the internal experiment workflow.
 
 ## Repository and release
 
 - Repository: <https://github.com/zcw8887seu/parce-cert-artifact>
-- Submission release: <https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.1.0>
+- Revised submission artifact version: `0.2.0`
 
 ## Included
 
@@ -16,7 +16,17 @@ The release is designed to expose the central executable ideas without publishin
 - one-sided Clopper--Pearson validation and three-way nominal verdicts;
 - exact Pareto-frontier risk allocation for a finite serial chain;
 - a brute-force oracle for small allocator instances;
-- selected aggregate tables used to report phase, selection, H3, allocator, and temporal-sensitivity results.
+- selected aggregate tables used to report phase, selection, H3, allocator, and temporal-sensitivity results;
+- a privacy-safe H3R1 reduced statistical-unit release and deterministic reconstruction script.
+
+Allocator risks and budgets have exact finite-decimal semantics. The code
+derives a common integer scale from every decimal token in the current
+instance, so it is not limited to a predeclared risk grid; Python `float`
+inputs use their shortest round-trip decimal spelling, while `str` or
+`Decimal` inputs preserve longer source tokens. The dynamic program minimizes
+`(bound, exact risk sum, lexicographic menu IDs)`. It implements memoryless
+serial chains with one decision per coordinate and rejects explicitly repeated
+coordinate IDs, which require an augmented retained-state allocator.
 
 ## Intentionally excluded
 
@@ -38,6 +48,7 @@ python -m venv .venv
 python -m pip install -e ".[test]"
 python examples/run_demo.py
 pytest
+python scripts/reconstruct_h3r1.py
 ```
 
 The demo prints:
@@ -47,9 +58,17 @@ The demo prints:
 3. a validation interval and nominal verdict;
 4. an exact chain allocation checked against exhaustive enumeration.
 
+The H3R1 reconstruction independently recomputes the selected order statistics, the phase-aware candidate bound, all five nominal validation rows, session-aware Pearson/Spearman guard inputs, and the final fail-closed H3 state. To retain the 200 per-session diagnostic rows and JSON summary:
+
+```bash
+python scripts/reconstruct_h3r1.py --write-dir reconstructed_h3r1
+```
+
+The allocator scaling summary was regenerated after the exact-decimal correction using CPython 3.12 on a 24-logical-CPU x86-64 Windows environment. Its runtime values are environment-specific software measurements; the exactness claim instead rests on the independent oracle tests.
+
 ## Data
 
-See [DATA_DICTIONARY.md](DATA_DICTIONARY.md). All published CSV files are aggregate or reduced tables. They contain no local paths, usernames, hostnames, MAC/IP addresses, process identifiers, or raw absolute timestamps.
+See [DATA_DICTIONARY.md](DATA_DICTIONARY.md). All published CSV files are aggregate or reduced tables. They contain no local paths, usernames, hostnames, MAC/IP addresses, process identifiers, or raw absolute timestamps. The H3R1 release uses neutral session labels and within-session order; it does not release raw events, experiment plans, machine-specific logs, hashes, manifests, or security/integrity records.
 
 ## Scientific boundary
 
