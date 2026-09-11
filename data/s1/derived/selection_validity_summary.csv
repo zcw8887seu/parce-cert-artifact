@@ -1,0 +1,51 @@
+supplement_id,experiment_scope,distribution_id,gate_regime,J,R,n,procedure,repetitions,family_failures,family_failure_rate,selected_failures,selected_failure_rate,alpha,cp_lower,cp_upper,target,status,sample_cost_per_repetition,total_sample_cost,infeasible_reason
+e01-s1,main,gamma,far,4,3,3000,bonferroni_simultaneous,10000,209.0,0.0209,130.0,0.013,0.05,0.0186010049574682,0.0234092178625567,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,gamma,far,4,3,3000,pointwise_95_then_select,10000,2203.0,0.2203,1361.0,0.1361,0.05,0.2134937216104092,0.2272269181056857,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,gamma,far,4,3,3000,split_select_certify,10000,139.0,0.0139,139.0,0.0139,0.05,0.012029985542963,0.0159845313097613,0.05,SUPPORTED,6000,60000000,
+e01-s1,main,gamma,near,4,3,3000,bonferroni_simultaneous,10000,211.0,0.0211,138.0,0.0138,0.05,0.0187899671163134,0.023620142665475,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,gamma,near,4,3,3000,pointwise_95_then_select,10000,2167.0,0.2167,1113.0,0.1113,0.05,0.2099348312774092,0.2235873678504588,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,gamma,near,4,3,3000,split_select_certify,10000,165.0,0.0165,165.0,0.0165,0.05,0.0144596933669026,0.0187531344661696,0.05,SUPPORTED,6000,60000000,
+e01-s1,main,lognormal_mixture,far,4,3,3000,bonferroni_simultaneous,10000,189.0,0.0189,101.0,0.0101,0.05,0.0167146175519718,0.0212967586509437,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,lognormal_mixture,far,4,3,3000,pointwise_95_then_select,10000,2237.0,0.2237,1167.0,0.1167,0.05,0.2168555834473636,0.2306635838255832,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,lognormal_mixture,far,4,3,3000,split_select_certify,10000,153.0,0.0153,153.0,0.0153,0.05,0.0133364015480127,0.0174771878841579,0.05,SUPPORTED,6000,60000000,
+e01-s1,main,lognormal_mixture,near,4,3,3000,bonferroni_simultaneous,10000,197.0,0.0197,96.0,0.0096,0.05,0.017468442558222,0.0221424669795033,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,lognormal_mixture,near,4,3,3000,pointwise_95_then_select,10000,2152.0,0.2152,902.0,0.0902,0.05,0.2084521844376114,0.2220706645563631,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,lognormal_mixture,near,4,3,3000,split_select_certify,10000,152.0,0.0152,152.0,0.0152,0.05,0.0132429338462246,0.0173707203431889,0.05,SUPPORTED,6000,60000000,
+e01-s1,main,shifted_lognormal,far,4,3,3000,bonferroni_simultaneous,10000,208.0,0.0208,111.0,0.0111,0.05,0.0185065449323637,0.0233037345517187,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,shifted_lognormal,far,4,3,3000,pointwise_95_then_select,10000,2169.0,0.2169,997.0,0.0997,0.05,0.2101325275405027,0.2237895849435597,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,shifted_lognormal,far,4,3,3000,split_select_certify,10000,144.0,0.0144,144.0,0.0144,0.05,0.0124960212887962,0.0165181589591014,0.05,SUPPORTED,6000,60000000,
+e01-s1,main,shifted_lognormal,near,4,3,3000,bonferroni_simultaneous,10000,192.0,0.0192,115.0,0.0115,0.05,0.0169971829796242,0.0216140173333326,0.05,SUPPORTED,3000,30000000,
+e01-s1,main,shifted_lognormal,near,4,3,3000,pointwise_95_then_select,10000,2183.0,0.2183,1112.0,0.1112,0.05,0.2115164670411938,0.2252050389688263,0.05,REPORTED_ONLY,3000,30000000,
+e01-s1,main,shifted_lognormal,near,4,3,3000,split_select_certify,10000,159.0,0.0159,159.0,0.0159,0.05,0.0138976683607506,0.0181155368281105,0.05,SUPPORTED,6000,60000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,1,1000,bonferroni_simultaneous,1000,28.0,0.028,28.0,0.028,0.05,0.0199719785861555,0.0381888650251762,0.05,SUPPORTED,1000,1000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,1,1000,split_select_certify,1000,31.0,0.031,31.0,0.031,0.05,0.0225302216740382,0.0416100734800796,0.05,SUPPORTED,2000,2000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,1,3000,bonferroni_simultaneous,1000,45.0,0.045,45.0,0.045,0.05,0.0347285917812413,0.0573262632531311,0.05,INCONCLUSIVE,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,1,3000,split_select_certify,1000,28.0,0.028,28.0,0.028,0.05,0.0199719785861555,0.0381888650251762,0.05,SUPPORTED,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,6,1000,bonferroni_simultaneous,1000,17.0,0.017,0.0,0.0,0.05,0.0108603060129118,0.0253907487761808,0.05,SUPPORTED,1000,1000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,6,1000,split_select_certify,1000,61.0,0.061,61.0,0.061,0.05,0.0490262305606774,0.074942076837688,0.05,INCONCLUSIVE,2000,2000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,6,3000,bonferroni_simultaneous,1000,27.0,0.027,8.0,0.008,0.05,0.0191248918382341,0.0370430693743617,0.05,SUPPORTED,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,far,1,6,3000,split_select_certify,1000,47.0,0.047,47.0,0.047,0.05,0.0364984697219789,0.0595451014277846,0.05,INCONCLUSIVE,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,far,8,1,1000,bonferroni_simultaneous,0,,,,,0.05,,,0.05,INFEASIBLE,1000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.0025 at alpha_row=0.00625
+e01-s1,sensitivity,shifted_lognormal,far,8,1,1000,split_select_certify,0,,,,,0.05,,,0.05,INFEASIBLE,2000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.0025 at alpha_row=0.00625
+e01-s1,sensitivity,shifted_lognormal,far,8,1,3000,bonferroni_simultaneous,1000,44.0,0.044,44.0,0.044,0.05,0.0338458324961601,0.0562147297908617,0.05,INCONCLUSIVE,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,far,8,1,3000,split_select_certify,1000,38.0,0.038,38.0,0.038,0.05,0.0285830223358065,0.0495128702559259,0.05,SUPPORTED,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,far,8,6,1000,bonferroni_simultaneous,0,,,,,0.05,,,0.05,INFEASIBLE,1000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.00674846 at alpha_row=0.00104167
+e01-s1,sensitivity,shifted_lognormal,far,8,6,1000,split_select_certify,0,,,,,0.05,,,0.05,INFEASIBLE,2000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.00674846 at alpha_row=0.00104167
+e01-s1,sensitivity,shifted_lognormal,far,8,6,3000,bonferroni_simultaneous,1000,13.0,0.013,3.0,0.003,0.05,0.0077062327240053,0.0205892865299083,0.05,SUPPORTED,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,far,8,6,3000,split_select_certify,1000,45.0,0.045,45.0,0.045,0.05,0.0347285917812413,0.0573262632531311,0.05,INCONCLUSIVE,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,1,1000,bonferroni_simultaneous,1000,31.0,0.031,31.0,0.031,0.05,0.0225302216740382,0.0416100734800796,0.05,SUPPORTED,1000,1000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,1,1000,split_select_certify,1000,26.0,0.026,26.0,0.026,0.05,0.0182808920769988,0.0358943415035992,0.05,SUPPORTED,2000,2000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,1,3000,bonferroni_simultaneous,1000,22.0,0.022,22.0,0.022,0.05,0.0149395725303093,0.0312666313925801,0.05,SUPPORTED,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,1,3000,split_select_certify,1000,35.0,0.035,35.0,0.035,0.05,0.0259760789459492,0.046138336093647,0.05,SUPPORTED,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,6,1000,bonferroni_simultaneous,1000,21.0,0.021,2.0,0.002,0.05,0.0141140519228244,0.0301004713288804,0.05,SUPPORTED,1000,1000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,6,1000,split_select_certify,1000,52.0,0.052,52.0,0.052,0.05,0.0409466247154681,0.06506940114929,0.05,INCONCLUSIVE,2000,2000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,6,3000,bonferroni_simultaneous,1000,19.0,0.019,7.0,0.007,0.05,0.0124767693558656,0.0277552860454791,0.05,SUPPORTED,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,near,1,6,3000,split_select_certify,1000,42.0,0.042,42.0,0.042,0.05,0.0320849145685136,0.0539872054114184,0.05,INCONCLUSIVE,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,near,8,1,1000,bonferroni_simultaneous,0,,,,,0.05,,,0.05,INFEASIBLE,1000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.0025 at alpha_row=0.00625
+e01-s1,sensitivity,shifted_lognormal,near,8,1,1000,split_select_certify,0,,,,,0.05,,,0.05,INFEASIBLE,2000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.0025 at alpha_row=0.00625
+e01-s1,sensitivity,shifted_lognormal,near,8,1,3000,bonferroni_simultaneous,1000,41.0,0.041,41.0,0.041,0.05,0.0312068610209815,0.0528711150540179,0.05,INCONCLUSIVE,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,near,8,1,3000,split_select_certify,1000,33.0,0.033,33.0,0.033,0.05,0.0242485447270761,0.0438786205303716,0.05,SUPPORTED,6000,6000000,
+e01-s1,sensitivity,shifted_lognormal,near,8,6,1000,bonferroni_simultaneous,0,,,,,0.05,,,0.05,INFEASIBLE,1000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.00674846 at alpha_row=0.00104167
+e01-s1,sensitivity,shifted_lognormal,near,8,6,1000,split_select_certify,0,,,,,0.05,,,0.05,INFEASIBLE,2000,0,ORDER_STATISTIC_INFEASIBLE: n=1000 too small to certify eps=0.00674846 at alpha_row=0.00104167
+e01-s1,sensitivity,shifted_lognormal,near,8,6,3000,bonferroni_simultaneous,1000,14.0,0.014,5.0,0.005,0.05,0.0084832353147846,0.0218001315255021,0.05,SUPPORTED,3000,3000000,
+e01-s1,sensitivity,shifted_lognormal,near,8,6,3000,split_select_certify,1000,29.0,0.029,29.0,0.029,0.05,0.0208219916940329,0.0393318759187474,0.05,SUPPORTED,6000,6000000,

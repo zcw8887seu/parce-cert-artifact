@@ -1,0 +1,9 @@
+numpy
+scipy
+pandas
+pyarrow
+pyyaml
+matplotlib
+pytest
+hypothesis
+jsonschema

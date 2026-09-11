@@ -1,0 +1,39 @@
+{
+  "experiment_id": "e01-tds1",
+  "oracle_n": 5000000,
+  "oracle_alpha": 0.001,
+  "eta": 0.0008718315467762154,
+  "seed_keys": [
+    [
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      2,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      3,
+      2
+    ]
+  ],
+  "scope": "EXPLORATORY_DKW_APPROXIMATION: the E2E oracle is an exploratory approximation and never enters TD1-TD3",
+  "physical_h3_status_unchanged": "INCONCLUSIVE_CORRELATION_SENSITIVITY",
+  "generated_at": "2026-08-19T10:49:01+00:00"
+}

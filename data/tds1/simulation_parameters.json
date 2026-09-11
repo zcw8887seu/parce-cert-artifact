@@ -1,0 +1,157 @@
+{
+  "experiment_id": "e01-tds1",
+  "experiment_type": "synthetic_temporal_dependence_simulation",
+  "physical_h3_status_unchanged": "INCONCLUSIVE_CORRELATION_SENSITIVITY",
+  "master_seed": 2026081802,
+  "bit_generator": "PCG64DXSM",
+  "dgps": [
+    "IID",
+    "GAUSSIAN_AR1_WEAK",
+    "HIDDEN_MARKOV",
+    "TAIL_BURST"
+  ],
+  "stage_coords": [
+    "X1",
+    "X2",
+    "X3",
+    "X4"
+  ],
+  "stage_scales_ns": [
+    100000,
+    25000,
+    60000,
+    90000
+  ],
+  "marginal_transform": "X = ceil(0.6*scale + exp(log(0.4*scale) + 0.45*ndtri(U)))",
+  "strict_tail": "P(X>q) = lognorm.sf(q-0.6*scale, s=0.45, scale=0.4*scale) for integer q; exact because X=ceil(Y) with continuous Y gives X>q <=> Y>q at integer thresholds",
+  "ar1_rho": 0.2,
+  "hmm_transition": [
+    [
+      0.995,
+      0.005
+    ],
+    [
+      0.02,
+      0.98
+    ]
+  ],
+  "hmm_stationary_pi": [
+    0.8,
+    0.2
+  ],
+  "hmm_emission_means": [
+    -0.75,
+    1.75
+  ],
+  "hmm_emission_sd": 0.65,
+  "burst_tail_mass": 0.01,
+  "burst_p11": 0.95,
+  "burst_p01": 0.0005050505050505055,
+  "calibration_units_per_repetition": 3000,
+  "validation_units_per_repetition": 3500,
+  "repetitions_per_dgp": 3000,
+  "oracle_e2e_units": 5000000,
+  "oracle_alpha": 0.001,
+  "oracle_eta": 0.0008718315467762154,
+  "coupling_repetitions_per_dgp": 100,
+  "independent_permutation_seeds": 10,
+  "coupling_ids": [
+    "ORIGINAL_ALIGNMENT",
+    "INDEPENDENT_PERMUTATION",
+    "COMONOTONIC_RANK",
+    "ANTITHETIC_RANK"
+  ],
+  "antithetic_convention": "X1 sorted ascending, X2-X4 sorted descending (same convention as e01 P4.2 coupling.py)",
+  "timing_model": {
+    "period_ns": 1000000,
+    "window_ns": [
+      [
+        400000,
+        700000
+      ]
+    ],
+    "service_demand_ns": 50000,
+    "phase_ns": 455509,
+    "risk_budget": 0.01,
+    "gate_after": [
+      false,
+      true,
+      true,
+      false
+    ]
+  },
+  "risk_grid": [
+    0.002,
+    0.003,
+    0.004
+  ],
+  "calibration_family_alpha": 0.05,
+  "calibration_alpha_row": 0.004166666666666667,
+  "expected_order_k": {
+    "0.002": 3000,
+    "0.003": 2999,
+    "0.004": 2997
+  },
+  "inner_alpha_row": 0.01,
+  "outer_families": {
+    "TD1": {
+      "size": 2,
+      "alpha_row": 0.025
+    },
+    "TD2": {
+      "size": 6,
+      "alpha_row": 0.008333333333333333
+    },
+    "TD3": {
+      "size": 7,
+      "alpha_row": 0.0071428571428571435
+    }
+  },
+  "td_targets": {
+    "menu_family_content_failure": 0.05,
+    "stage_upper_noncoverage_family": 0.04,
+    "iid_false_trigger": 0.05,
+    "dep_detection": 0.8,
+    "unsafe_pipeline_upgrade": 0.05
+  },
+  "diagnostic_series": "lag-1 diagnostics computed on the X1-X4/E2E nanosecond value sequences, never on U",
+  "seed_key_scheme": {
+    "structure": "(dgp_index, repetition, split_index, stage_index, purpose_index)",
+    "primary": "purpose 0; split 0=calibration, 1=validation",
+    "marginal_check": "(dgp_index, 0, 0, stage_index, 1)",
+    "oracle": "(0, 0, 0, stage_index, 2)",
+    "coupling_permutation": "(dgp_index, repetition, perm_seed[1..10], 0, 3); the third slot carries the permutation seed"
+  },
+  "audit_repetitions": [
+    0,
+    1,
+    2,
+    7,
+    31,
+    127,
+    511,
+    1023,
+    2047,
+    2999
+  ],
+  "dkw_gate": {
+    "n_check": 1000000,
+    "m": 16,
+    "family_alpha": 0.001,
+    "threshold": 0.0022774427744492137
+  },
+  "expected_row_counts": {
+    "dgp_marginal_checks.parquet": 16,
+    "calibration_menu_results.parquet": 144000,
+    "selected_designs.parquet": 12000,
+    "validation_results.parquet": 60000,
+    "run_order_diagnostics.parquet": 120000,
+    "repetition_summary.parquet": 12000,
+    "coupling_checks.parquet": 5200,
+    "oracle_e2e_values.parquet": 5000000,
+    "exploratory_diagnostics.parquet": 120000,
+    "cell_summary.csv": 17,
+    "hypothesis_results.csv": 4
+  },
+  "TD4_reporting": "Exact executed-object audit; population alpha and CP intervals are not applicable."
+}

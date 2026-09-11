@@ -1,0 +1,5 @@
+dgp_id,repetitions,menu_failures,stage_noncoverage,diagnostic_triggers,nominal_all_stage_supported,unsafe_nominal_pass,unsafe_pipeline_upgrade
+IID,3000,56,9,0,544,0,0
+GAUSSIAN_AR1_WEAK,3000,66,10,3000,585,0,0
+HIDDEN_MARKOV,3000,392,44,3000,538,1,0
+TAIL_BURST,3000,2510,1511,2994,330,121,0

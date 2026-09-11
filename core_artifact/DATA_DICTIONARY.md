@@ -22,9 +22,9 @@ There are 32,500 rows: 15,000 calibration rows (3,000 selected run vectors × 5 
 
 ### `h3r1_reconstruction_config.json`
 
-Frozen non-identifying configuration and expected numerical outputs: sample and family sizes, selected risks/envelopes, periodic-window semantics, the temporal-guard formula, the candidate bound, and expected diagnostic/validation checks. It contains no run plan, execution timestamps, host identity, integrity manifest, or hash.
+Fixed reconstruction parameters and expected outputs: sample and family sizes, selected risks/envelopes, periodic-window semantics, the temporal-guard formula, the candidate bound, and diagnostic/validation counts.
 
-The released data intentionally exclude absolute timestamps; original session IDs; global run IDs; host, user, process, path, IP/MAC, CPU, kernel, and hardware identifiers; raw event records; experiment plans and launch material; hashes, manifests, and security/integrity records. Consequently, the reconstruction independently recomputes coordinate-level event inclusion, but it does not replay the withheld raw-timestamp reference-mismatch comparison. Its frozen checked count is stated transparently in the configuration.
+The reduced core independently recomputes coordinate-level event inclusion but does not replay raw-timestamp comparisons. Its configuration retains the original checked count. For the physical event replay, use verify_bundle.py and the raw tables in the parent archive.
 
 ## `phase_boundary_summary.csv`
 
@@ -56,7 +56,7 @@ Counts of exhaustive allocator comparisons and mismatches.
 
 ## `allocator_scaling_summary.csv`
 
-Aggregate runtime/frontier statistics grouped by stage count, menu size, and gate count after the exact-decimal correction. The corrected rerun used CPython 3.12 on a 24-logical-CPU x86-64 Windows environment. These environment-specific rows describe finite implementation behavior and do not prove complexity or determine allocator exactness.
+Aggregate runtime/frontier statistics grouped by stage count, menu size, and gate count after the exact-decimal correction. These environment-specific measurements describe finite implementation behavior; exactness is assessed by independent oracle tests, not timing measurements.
 
 ## `guard_threshold_sensitivity.csv`
 

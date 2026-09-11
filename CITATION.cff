@@ -1,11 +1,20 @@
 cff-version: 1.2.0
-message: "If you use this software or the accompanying aggregate data, please cite the PARCE-Cert paper."
-title: "PARCE-Cert Core Reproducibility Artifact"
-version: 0.2.0
+message: "Please cite the version-specific Zenodo record for the data and code used. The version-series link in README.md lists archived versions."
+title: "PARCE-Cert: Data and Code"
+version: 0.3.0
+date-released: 2026-09-11
 type: software
 repository-code: "https://github.com/zcw8887seu/parce-cert-artifact"
-url: "https://github.com/zcw8887seu/parce-cert-artifact"
+url: "https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.3.0"
 license: MIT
+abstract: >-
+  Data and code supporting Phase-aware timing certification with selection-valid
+  bounds and explicit dependence assumptions. Includes 538,600 session-relative
+  physical event records, derived statistical units, 12,000 temporal-dependence
+  simulation repetitions, analysis sources and figure inputs. Original code and
+  documentation are licensed under MIT; data are licensed under CC BY 4.0, as
+  detailed in DATA_LICENSE.md. The physical H3 result remains
+  INCONCLUSIVE_CORRELATION_SENSITIVITY.
 authors:
   - family-names: Zhang
     given-names: Chengwei
@@ -14,3 +23,9 @@ authors:
   - family-names: Wang
     given-names: Yun
     affiliation: "School of Computer Science and Engineering, Southeast University"
+keywords:
+  - timing certification
+  - real-time systems
+  - selection-valid inference
+  - temporal dependence
+  - reproducibility

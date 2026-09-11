@@ -1,0 +1,4 @@
+stage_risk_grid: [0.002, 0.003, 0.004]
+system_risk_budget: 0.010
+calibration_family_alpha: 0.05
+validation_family_alpha: 0.05

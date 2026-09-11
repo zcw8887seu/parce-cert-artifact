@@ -1,0 +1,9 @@
+calendar_id: C1
+period_ns: 1000000
+eligibility_offset_ns: 0
+service_demand_ns: 50000
+windows:
+  - {window_id: 0, open_ns: 400000, close_ns: 700000}
+admission_semantics: FIT_WITHIN_ONE_HALF_OPEN_WINDOW
+late_wake_policy: RECOMPUTE_NEXT_FEASIBLE
+clock_id: CLOCK_MONOTONIC

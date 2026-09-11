@@ -1,0 +1,43 @@
+{
+  "procedure": "SIMULTANEOUS_MENU",
+  "calendar_id": "C1",
+  "phase_ns": 455509,
+  "risk_budget": 0.01,
+  "selected_menu_ids": {
+    "X1": "X1@0.002",
+    "X2": "X2@0.004",
+    "X3": "X3@0.002",
+    "X4": "X4@0.002"
+  },
+  "selected_risks": {
+    "X1": 0.002,
+    "X2": 0.004,
+    "X3": 0.002,
+    "X4": 0.002
+  },
+  "selected_q_ns": {
+    "X1": 100546,
+    "X2": 2985934,
+    "X3": 1851487,
+    "X4": 3516488
+  },
+  "risk_sum": 0.01,
+  "bound_ns": 8510979,
+  "calendar_signature": [
+    "C1",
+    1000000,
+    0,
+    50000,
+    [
+      [
+        400000,
+        700000
+      ]
+    ],
+    455509
+  ],
+  "algorithm": "PARETO_FRONTIER_DP",
+  "status": "DESIGN_FROZEN",
+  "replay_bound_ns": 8510979,
+  "dp_matches_brute_force": true
+}

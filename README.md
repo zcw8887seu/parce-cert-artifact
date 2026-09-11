@@ -1,86 +1,57 @@
-# PARCE-Cert Core Reproducibility Artifact
+# PARCE-Cert: data and code
 
-This repository contains a deliberately small, host-independent artifact for the paper **“PARCE-Cert: Selection-Valid Phase-Aware Timing Certification under Explicit Dependence Contracts.”**
+Materials supporting *Phase-aware timing certification with selection-valid bounds and explicit dependence assumptions*.
 
-The release is designed to expose the central executable ideas without publishing the complete physical-event archive or the internal experiment workflow.
+Release **v0.3.0** expands the previously published core artifact with the event-level and simulation data, analysis sources and figure inputs used in the manuscript. It does not introduce new experiments or change the reported scientific outcomes.
 
-## Repository and release
+## Contents
 
-- Repository: <https://github.com/zcw8887seu/parce-cert-artifact>
-- Revised submission artifact version: `0.2.0`
+| Directory | Contents |
+|---|---|
+| core_artifact/ | Executable timing, statistical and allocation methods; reduced H3R1 data and reconstruction tests. |
+| data/e01/ | 278,600 physical event records and the initial campaign's derived results. |
+| data/s1/ | Corrected selection-validity repetitions, summaries and run-order diagnostics. |
+| data/h3r1/ | 260,000 physical event records, calibration menus, selected design and validation results. |
+| data/tds1/ | Temporal-dependence simulation parameters, repetition-level results and oracle values. |
+| implementation/ | Collection and analysis sources, with separate H3R1 and TDS1 modules. |
+| figure_data/, figure_code/ | Inputs and code for the eight paper figures. |
 
-## Included
+See [DATA_GUIDE.md](DATA_GUIDE.md) for units, statistical samples and table meanings. The independently usable core is in `core_artifact/`; its package version remains 0.2.0. Earlier GitHub tags and Zenodo records retain the original core-only releases.
 
-- integer reference operator for fit-within-one-window periodic service;
-- finite-sample order-statistic menu construction;
-- one-sided Clopper--Pearson validation and three-way nominal verdicts;
-- exact Pareto-frontier risk allocation for a finite serial chain;
-- a brute-force oracle for small allocator instances;
-- selected aggregate tables used to report phase, selection, H3, allocator, and temporal-sensitivity results;
-- a privacy-safe H3R1 reduced statistical-unit release and deterministic reconstruction script.
+## Download and cite
 
-Allocator risks and budgets have exact finite-decimal semantics. The code
-derives a common integer scale from every decimal token in the current
-instance, so it is not limited to a predeclared risk grid; Python `float`
-inputs use their shortest round-trip decimal spelling, while `str` or
-`Decimal` inputs preserve longer source tokens. The dynamic program minimizes
-`(bound, exact risk sum, lexicographic menu IDs)`. It implements memoryless
-serial chains with one decision per coordinate and rejects explicitly repeated
-coordinate IDs, which require an augmented retained-state allocator.
+- [GitHub release v0.3.0](https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.3.0): download `parce-cert-data-code-v0.3.0.zip` for this complete data/code package.
+- [Zenodo version series](https://doi.org/10.5281/zenodo.22255539): select version v0.3.0 and use its version-specific DOI when citing these results. The series DOI resolves to the latest published version.
 
-## Intentionally excluded
+Authors: Chengwei Zhang and Yun Wang, School of Computer Science and Engineering, Southeast University, Nanjing, China. Chengwei Zhang: [ORCID 0009-0008-4623-4570](https://orcid.org/0009-0008-4623-4570). Yun Wang is the corresponding author.
 
-- raw physical-event traces and packet-level logs;
-- machine, user, process, filesystem, and hardware identifiers;
-- launch scripts and complete experiment-execution documents;
-- internal review packages and campaign-management records;
-- hashes, manifests, authorization files, and security/integrity checks;
-- the full experiment dataset.
+## Reconstruct the retained results
 
-The aggregate tables are sufficient to inspect the reported decisions, but they are not a replacement for the full private research archive.
+Python 3.11 or newer. From this directory on Linux:
 
-## Quick start
+    python -m venv .venv
+    source .venv/bin/activate
+    python -m pip install -r requirements.txt
+    python verify_bundle.py
+    python core_artifact/scripts/reconstruct_h3r1.py
+    PYTHONPATH=core_artifact/src python -m pytest core_artifact/tests -q
 
-```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
-python -m pip install -e ".[test]"
-python examples/run_demo.py
-pytest
-python scripts/reconstruct_h3r1.py
-```
+The verification script replays the first feasible Gate target for all 538,600 physical records, compares selected H3R1 vectors with the reduced data, checks phase dominance and recomputes TD4 replay counts. The core reconstruction recomputes stage menus, the selected candidate bound, nominal validation and the H3 disposition. Neither command collects new data.
 
-The demo prints:
+To generate the figures:
 
-1. the one-nanosecond gate-boundary transition;
-2. the order-statistic indices for the three frozen risk rows;
-3. a validation interval and nominal verdict;
-4. an exact chain allocation checked against exhaustive enumeration.
+    python figure_code/build_paper_figures.py
 
-The H3R1 reconstruction independently recomputes the selected order statistics, the phase-aware candidate bound, all five nominal validation rows, session-aware Pearson/Spearman guard inputs, and the final fail-closed H3 state. To retain the 200 per-session diagnostic rows and JSON summary:
+PDFs, PNGs and the plotting summary are written to figures/; input files are not modified. Figure code was developed with OpenAI ChatGPT/Codex assistance.
 
-```bash
-python scripts/reconstruct_h3r1.py --write-dir reconstructed_h3r1
-```
+## Interpretation
 
-The allocator scaling summary was regenerated after the exact-decimal correction using CPython 3.12 on a 24-logical-CPU x86-64 Windows environment. Its runtime values are environment-specific software measurements; the exactness claim instead rests on the independent oracle tests.
+Physical timestamps have session-relative origins: subtracting one whole-period offset per session preserves duration differences, periodic phases and event order. Session labels are neutral. Do not compare absolute time origins between sessions.
 
-## Data
+The 538,600 event rows are not independent statistical units. H3R1 uses one selected instance per valid run: 3,000 calibration and 3,500 validation runs. Losses, flags and adverse outcomes are retained. The H3 result remains INCONCLUSIVE_CORRELATION_SENSITIVITY; 15,544,694 ns is a candidate bound, not an issued certificate.
 
-See [DATA_DICTIONARY.md](DATA_DICTIONARY.md). All published CSV files are aggregate or reduced tables. They contain no local paths, usernames, hostnames, MAC/IP addresses, process identifiers, or raw absolute timestamps. The H3R1 release uses neutral session labels and within-session order; it does not release raw events, experiment plans, machine-specific logs, hashes, manifests, or security/integrity records.
-
-## Scientific boundary
-
-The physical H3 result remains **INCONCLUSIVE** with reason **CORRELATION_SENSITIVITY**. Favorable nominal validation counts do not override the acquisition guard. The temporal-dependence simulation tables describe four frozen data-generating processes and do not establish a theorem for arbitrary dependent sequences.
-
-## Authors
-
-- Chengwei Zhang, School of Computer Science and Engineering, Southeast University. ORCID: [0009-0008-4623-4570](https://orcid.org/0009-0008-4623-4570)
-- Yun Wang, School of Computer Science and Engineering, Southeast University. Corresponding author.
+TDS1 synthetic input sequences are regenerated from the stored parameters and seeds rather than individually archived. Full simulation regeneration is distinct from the retained-result checks above. Physical collection is environment-sensitive. See [implementation/README.md](implementation/README.md) for source organization and the limits of the historical command-line interfaces.
 
 ## License
 
-The source code and repository documentation are licensed under the
-[MIT License](LICENSE). The aggregate CSV files in `data/` are licensed under
-[CC BY 4.0](DATA_LICENSE.md).
+Original code and documentation: [MIT](LICENSE). Data: [CC BY 4.0](DATA_LICENSE.md). Authorship and citation metadata for the separately released core are retained in core_artifact/.
