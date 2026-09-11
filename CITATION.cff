@@ -2,6 +2,7 @@ cff-version: 1.2.0
 message: "Please cite the version-specific Zenodo record for the data and code used. The version-series link in README.md lists archived versions."
 title: "PARCE-Cert: Data and Code"
 version: 0.3.0
+doi: 10.5281/zenodo.22708789
 date-released: 2026-09-11
 type: software
 repository-code: "https://github.com/zcw8887seu/parce-cert-artifact"

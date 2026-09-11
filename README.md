@@ -21,6 +21,7 @@ See [DATA_GUIDE.md](DATA_GUIDE.md) for units, statistical samples and table mean
 ## Download and cite
 
 - [GitHub release v0.3.0](https://github.com/zcw8887seu/parce-cert-artifact/releases/tag/v0.3.0): download `parce-cert-data-code-v0.3.0.zip` for this complete data/code package.
+- [Zenodo v0.3.0](https://doi.org/10.5281/zenodo.22708789): the permanent archive of this release. Cite this version-specific DOI when using these data and code.
 - [Zenodo version series](https://doi.org/10.5281/zenodo.22255539): select version v0.3.0 and use its version-specific DOI when citing these results. The series DOI resolves to the latest published version.
 
 Authors: Chengwei Zhang and Yun Wang, School of Computer Science and Engineering, Southeast University, Nanjing, China. Chengwei Zhang: [ORCID 0009-0008-4623-4570](https://orcid.org/0009-0008-4623-4570). Yun Wang is the corresponding author.
